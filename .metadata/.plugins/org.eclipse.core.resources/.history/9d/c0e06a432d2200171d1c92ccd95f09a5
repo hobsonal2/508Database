@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 
-public class DInterface extends JFrame{
+public class DInterface {
 
 	private JFrame frame;
 
@@ -37,12 +37,9 @@ public class DInterface extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 989, 715);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
 		
 		JButton btnSelectEmployee = new JButton("Show all members of the congregation");
 		frame.getContentPane().add(btnSelectEmployee, BorderLayout.NORTH);
@@ -54,20 +51,8 @@ public class DInterface extends JFrame{
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		
-		JMenuBar menuBar = new JMenuBar();              //creates the menu bar
+		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		
-		JMenu mnFile = new JMenu("File");               //Adds the menu File
-		mnFile.setMnemonic(KeyEvent.VK_F);
-		menuBar.add(mnFile);
-		
-		JMenuItem mExit = new JMenuItem("Exit");         //Adds the menu item exit in File
-		mnFile.add(mExit);
-		mExit.setMnemonic(KeyEvent.VK_E);
-		mExit.setToolTipText("Exit application");
-		mExit.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
 		
 		// add the listener to the btnSelectEmployee to handle the "pressed" event
 		btnSelectEmployee.addActionListener(new ActionListener()
@@ -81,27 +66,5 @@ public class DInterface extends JFrame{
 	    });
 		
 	}
-	
-	private void createMenuBar() {
-
-        JMenuBar menubar = new JMenuBar();
-        ImageIcon icon = new ImageIcon("exit.png");
-
-        JMenu file = new JMenu("File");
-        file.setMnemonic(KeyEvent.VK_F);
-
-        JMenuItem eMenuItem = new JMenuItem("Exit", icon);
-        eMenuItem.setMnemonic(KeyEvent.VK_E);
-        eMenuItem.setToolTipText("Exit application");
-        eMenuItem.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
-
-        file.add(eMenuItem);
-
-        menubar.add(file);
-
-        setJMenuBar(menubar);
-    }
 
 }

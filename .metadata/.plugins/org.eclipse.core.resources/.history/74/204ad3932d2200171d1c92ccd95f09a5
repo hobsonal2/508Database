@@ -37,12 +37,10 @@ public class DInterface extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
+		createMenuBar();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 989, 715);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
 		
 		JButton btnSelectEmployee = new JButton("Show all members of the congregation");
 		frame.getContentPane().add(btnSelectEmployee, BorderLayout.NORTH);
@@ -53,21 +51,6 @@ public class DInterface extends JFrame{
 		
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
-		
-		JMenuBar menuBar = new JMenuBar();              //creates the menu bar
-		frame.setJMenuBar(menuBar);
-		
-		JMenu mnFile = new JMenu("File");               //Adds the menu File
-		mnFile.setMnemonic(KeyEvent.VK_F);
-		menuBar.add(mnFile);
-		
-		JMenuItem mExit = new JMenuItem("Exit");         //Adds the menu item exit in File
-		mnFile.add(mExit);
-		mExit.setMnemonic(KeyEvent.VK_E);
-		mExit.setToolTipText("Exit application");
-		mExit.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
 		
 		// add the listener to the btnSelectEmployee to handle the "pressed" event
 		btnSelectEmployee.addActionListener(new ActionListener()

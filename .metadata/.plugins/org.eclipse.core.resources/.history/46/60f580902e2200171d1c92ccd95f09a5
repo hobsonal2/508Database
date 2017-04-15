@@ -54,20 +54,15 @@ public class DInterface extends JFrame{
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		
-		JMenuBar menuBar = new JMenuBar();              //creates the menu bar
+		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
-		JMenu mnFile = new JMenu("File");               //Adds the menu File
+		JMenu mnFile = new JMenu("File");
 		mnFile.setMnemonic(KeyEvent.VK_F);
 		menuBar.add(mnFile);
 		
-		JMenuItem mExit = new JMenuItem("Exit");         //Adds the menu item exit in File
-		mnFile.add(mExit);
-		mExit.setMnemonic(KeyEvent.VK_E);
-		mExit.setToolTipText("Exit application");
-		mExit.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
 		
 		// add the listener to the btnSelectEmployee to handle the "pressed" event
 		btnSelectEmployee.addActionListener(new ActionListener()
