@@ -42,6 +42,11 @@ public class DInterface extends JFrame{
 		frame.setBounds(100, 100, 989, 715);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+		
+		JButton btnSelectEmployee = new JButton("Show all members of the congregation");
+		frame.getContentPane().add(btnSelectEmployee, BorderLayout.NORTH);
+		
 		JTextArea textArea = new JTextArea();
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 23));
 		frame.getContentPane().add(textArea, BorderLayout.CENTER);
@@ -60,27 +65,43 @@ public class DInterface extends JFrame{
 		mnFile.add(mExit);
 		mExit.setMnemonic(KeyEvent.VK_E);
 		mExit.setToolTipText("Exit application");
-		
-	
-		mExit.addActionListener((ActionEvent event) -> {   //Event listener to exit
+		mExit.addActionListener((ActionEvent event) -> {
             System.exit(0);
         });
 		
-		JMenu mDisplay = new JMenu("Display");           //Adds the menu Display
-		mDisplay.setMnemonic(KeyEvent.VK_D);
-		menuBar.add(mDisplay);
-		
-		JMenuItem mDisplayAllMembers = new JMenuItem("Display all members of the congregation");    //Adds the menu item display congregation in Display
-		mDisplay.add(mDisplayAllMembers);
-		mDisplayAllMembers.setMnemonic(KeyEvent.VK_G);
-		mDisplayAllMembers.setToolTipText("Display all members of the congregation");               
-		
-		mDisplayAllMembers.addActionListener((ActionEvent event) -> {                               //Event listener to display congregation
-			Connector.connect();
-	        textArea.setText(Connector.connect());	
-		});
+		// add the listener to the btnSelectEmployee to handle the "pressed" event
+		btnSelectEmployee.addActionListener(new ActionListener()
+	    {
+	      public void actionPerformed(ActionEvent e)
+	      {
+	        // display/center the btnSelectEmployee when the button is pressed
+	        Connector.connect();
+	        textArea.setText(Connector.connect());
+	      }
+	    });
 		
 	}
+	
+	private void createMenuBar() {
 
+        JMenuBar menubar = new JMenuBar();
+        ImageIcon icon = new ImageIcon("exit.png");
+
+        JMenu file = new JMenu("File");
+        file.setMnemonic(KeyEvent.VK_F);
+
+        JMenuItem eMenuItem = new JMenuItem("Exit", icon);
+        eMenuItem.setMnemonic(KeyEvent.VK_E);
+        eMenuItem.setToolTipText("Exit application");
+        eMenuItem.addActionListener((ActionEvent event) -> {
+            System.exit(0);
+        });
+
+        file.add(eMenuItem);
+
+        menubar.add(file);
+
+        setJMenuBar(menubar);
+    }
 
 }
