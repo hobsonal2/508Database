@@ -10,10 +10,6 @@ public class Connector {
 	ResultSet rs = null;
 	static Connection globalConnection;
 	
-	/**
-	 * Method to print all the members of the organization.
-	 * @return
-	 */
 	public static String printMembers() {
 		String a = "";
 		Statement st;
@@ -41,9 +37,7 @@ public class Connector {
 		}
 	}
 	
-	/**
-	 * Method to connect to the jasmine server
-	 */
+	
 	public static void connect(){
 		String a = "";
 		System.out.println("-------- Oracle JDBC Connection Testing ------");
