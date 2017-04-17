@@ -56,17 +56,6 @@ public class DInterface extends JFrame{
 		mnFile.setMnemonic(KeyEvent.VK_F);
 		menuBar.add(mnFile);
 		
-		JMenuItem mAbout = new JMenuItem("About");     //Adds the about menu item in File
-		mnFile.add(mAbout);
-		mAbout.setMnemonic(KeyEvent.VK_A);
-		mAbout.setToolTipText("Go to about page");
-		
-		mAbout.addActionListener((ActionEvent event) -> { //changes the main textview to display developer information
-			textArea.setText("Application and Software Developers:" + "\nAustin Hobson and Kevin Richmond");
-			//aboutFrame aFrame = new aboutFrame();
-				//aFrame.setVisible(true);
-		});
-		
 		JMenuItem mExit = new JMenuItem("Exit");         //Adds the menu item exit in File
 		mnFile.add(mExit);
 		mExit.setMnemonic(KeyEvent.VK_E);
