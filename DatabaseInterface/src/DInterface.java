@@ -81,11 +81,19 @@ public class DInterface extends JFrame{
 		mDisplay.setMnemonic(KeyEvent.VK_D);
 		menuBar.add(mDisplay);
 		
+		JMenu mnAdd = new JMenu("Add");                  //Adds the menu Add
+		menuBar.add(mnAdd);
+		
+		JMenu mnRemove = new JMenu("Remove");            //Adds the menu remove
+		menuBar.add(mnRemove);
+		
+		
 		JMenuItem mDisplayAllMembers = new JMenuItem("Display all members of the congregation");    //Adds the menu item display congregation in Display
 		mDisplay.add(mDisplayAllMembers);
 		mDisplayAllMembers.setMnemonic(KeyEvent.VK_G);
 		mDisplayAllMembers.setToolTipText("Display all members of the congregation");               
 		
+
 		mDisplayAllMembers.addActionListener((ActionEvent event) -> {                               //Event listener to display congregation
 			Connector.connect();
 	       textArea.setText(Connector.printMembers());	
