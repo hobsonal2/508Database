@@ -41,7 +41,7 @@ public class Connector {
 		}
 	}
 	
-	/*public static void addMember(){
+	public static void addMember(){
 		Statement st;
 		try{
 			st = globalConnection.createStatement();
@@ -51,7 +51,7 @@ public class Connector {
         System.err.println("Got an exception! "); 
         System.err.println(e.getMessage()); 
     } 
-	}*/
+	}
 	
 	/**
 	 * Method to connect to the jasmine server
