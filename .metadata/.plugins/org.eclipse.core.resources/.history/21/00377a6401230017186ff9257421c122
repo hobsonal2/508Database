@@ -8,37 +8,11 @@ import java.sql.Statement;
 public class Connector {
 
 	ResultSet rs = null;
-	static Connection globalConnection;
-	
-	public static String printMembers() {
-		String a = "";
-		Statement st;
-		try {
-			st = globalConnection.createStatement();
-			ResultSet rs = st.executeQuery("select * from Employees");
-			ResultSetMetaData rsmd = rs.getMetaData();
-			int columnsNumber = rsmd.getColumnCount();
-			while (rs.next()) {
-				// Print one row
-				for (int i = 1; i <= columnsNumber; i++) {
-
-					a += rs.getString(i) + " | "; // Print one element of a row
-
-				}
-
-				a += "\n";// Move to the next line to print the next row.
-
-			}
-			return a;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-	}
+	Connection globalConnection;
 	
 	
-	public static void connect(){
+	
+	public Connection connect(){
 		String a = "";
 		System.out.println("-------- Oracle JDBC Connection Testing ------");
 		
@@ -48,6 +22,7 @@ public class Connector {
 		catch(ClassNotFoundException e){
 			System.out.println("Where is your Oracle JDBC Driver?");
             e.printStackTrace();
+            return null;
 		}
 		
 		System.out.println("Oracle JDBC Driver Registered!");
@@ -57,10 +32,28 @@ public class Connector {
 		try{
 			connection = DriverManager.getConnection("jdbc:oracle:thin:@jasmine.cs.vcu.edu:20037/xe", "hobsonal2", "V00390396");
 			globalConnection = connection;
+			Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("select * from Employees");
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            
+            
+          /*  while (rs.next()) {
+            	//Print one row          
+            	for(int i = 1 ; i <= columnsNumber; i++){
+
+            	      a += rs.getString(i) + " | "; //Print one element of a row
+
+            	}
+
+            	  a += "\n";//Move to the next line to print the next row.           
+
+            	    }*/
 		}
 		catch(SQLException e){
 			System.out.println("Connection Failed! Check output console");
 			e.printStackTrace();
+			return null;
 		}
 		
 		if (connection != null) {
@@ -69,6 +62,10 @@ public class Connector {
         } else {
             System.out.println("Failed to make connection!");
         }
-
+		
+		System.out.println(a);
+		return connection;
+		
+		
 	}
 }

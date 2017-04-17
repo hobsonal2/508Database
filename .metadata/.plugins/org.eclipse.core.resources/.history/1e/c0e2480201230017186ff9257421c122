@@ -77,7 +77,7 @@ public class DInterface extends JFrame{
 		
 		mDisplayAllMembers.addActionListener((ActionEvent event) -> {                               //Event listener to display congregation
 			Connector.connect();
-	       textArea.setText(Connector.printMembers());	
+	        textArea.setText(Connector.connect());	
 		});
 		
 	}
