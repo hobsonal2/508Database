@@ -45,7 +45,7 @@ public class Connector {
 		Statement st;
 		try{
 			st = globalConnection.createStatement();
-			st.executeUpdate("INSERT INTO Employees (emp_id, emp_name, emp_address, emp_state, emp_position, emp_manager)VALUES (001, \"John Doe\", \"1 River Walk, Green Street\", 3, 5, 1000)");
+			st.executeUpdate("INSERT INTO Employee (emp_id, emp_name, emp_address, emp_state, emp_position, emp_manager)VALUES (001, \"John Doe\", \"1 River Walk, Green Street\", 3, 5, 1000)");
 			
 		}catch (Exception e) { 
         System.err.println("Got an exception! "); 

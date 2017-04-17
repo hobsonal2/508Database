@@ -41,18 +41,6 @@ public class Connector {
 		}
 	}
 	
-	public static void addMember(){
-		Statement st;
-		try{
-			st = globalConnection.createStatement();
-			st.executeUpdate("INSERT INTO Employees (emp_id, emp_name, emp_address, emp_state, emp_position, emp_manager)VALUES (001, \"John Doe\", \"1 River Walk, Green Street\", 3, 5, 1000)");
-			
-		}catch (Exception e) { 
-        System.err.println("Got an exception! "); 
-        System.err.println(e.getMessage()); 
-    } 
-	}
-	
 	/**
 	 * Method to connect to the jasmine server
 	 */
